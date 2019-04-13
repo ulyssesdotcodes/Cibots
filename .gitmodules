@@ -1,0 +1,3 @@
+[submodule "Assets/hard"]
+	path = Assets/hard
+	url = https://github.com/selfsame/hard
