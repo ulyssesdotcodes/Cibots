@@ -5,5 +5,10 @@ public class HealthAgent : MonoBehaviour {
 
     public void Damage(float damage) {
         Health.RuntimeValue -= damage;
+
+        WanderingAgent wanderingAgent = GetComponent<WanderingAgent>();
+        if (wanderingAgent != null) {
+            wanderingAgent.TookDamage(damage);
+        }
     }
 }

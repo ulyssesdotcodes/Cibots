@@ -1,3 +1,5 @@
+UnitySDK.log
+
 # Arcadia
 /Arcadia/
 *.mdb*
@@ -12,7 +14,10 @@ Source/clojure/**/*.meta
 **/*.clj.dll.meta
 **/*.md.meta
 
-
+# ml-agents
+/summaries/
+/models/
+Assets/ML-Agents
 
 
 # This .gitignore file should be placed at the root of your Unity project directory

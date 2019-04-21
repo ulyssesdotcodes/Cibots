@@ -10,6 +10,5 @@ public class EnergyAgent : MonoBehaviour {
 
     public void UseAbility(Ability ability) {
         EnergyPool.RuntimeValue -= ability.EnergyCost * Time.deltaTime;
-        Debug.Log(EnergyPool.RuntimeValue);
     }
 }

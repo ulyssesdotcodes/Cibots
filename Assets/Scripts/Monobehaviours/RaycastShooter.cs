@@ -15,11 +15,13 @@ public class RaycastShooter : MonoBehaviour {
         energyAgent = GetComponent<EnergyAgent>();
     }
 
-    public void Fire()
+    public string Fire()
     {
         if(!Ability.CanRun(energyAgent.EnergyPool)) {
-            return;
+            return null;
         }
+
+        bool hitSomething = false;
 
         energyAgent.UseAbility(Ability);
         //Create a vector at the center of our camera's near clip plane.
@@ -37,6 +39,7 @@ public class RaycastShooter : MonoBehaviour {
         //Check if our raycast has hit anything
         if (Physics.Raycast(rayOrigin, transform.forward, out hit, Ability.weaponRange))
         {
+            hitSomething = true;
             //Set the end position for our laser line 
             laserLine.SetPosition(1, hit.point);
             
@@ -47,7 +50,7 @@ public class RaycastShooter : MonoBehaviour {
             if (health != null)
             {
                 //Call the damage function of that script, passing in our gunDamage variable
-                health.Damage(Ability.gunDamage);
+                health.Damage(Ability.gunDamage * Time.deltaTime);
             }
             
             //Check if the object we hit has a rigidbody attached
@@ -68,6 +71,7 @@ public class RaycastShooter : MonoBehaviour {
         }
 
         LaserActive = StartCoroutine(FireEnable());
+        return hitSomething ? hit.collider.gameObject.tag : null;
     }
 
     private IEnumerator FireEnable() {
