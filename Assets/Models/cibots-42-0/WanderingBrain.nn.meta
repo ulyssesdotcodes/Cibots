@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: ef8b9046a10d1b44da110dd38302d8f5
+ScriptedImporter:
+  fileIDToRecycleName:
+    11400000: Assets/Models/cibots-42-0/WanderingBrain.nn
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 83221ad3db87f4b3b91b041047cb2bc5, type: 3}

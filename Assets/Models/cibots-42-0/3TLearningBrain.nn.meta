@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: a4b7f6b19ee327c45ae84f05a1b4d447
+ScriptedImporter:
+  fileIDToRecycleName:
+    11400000: Assets/Models/cibots-42-0/3TLearningBrain.nn
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 83221ad3db87f4b3b91b041047cb2bc5, type: 3}
