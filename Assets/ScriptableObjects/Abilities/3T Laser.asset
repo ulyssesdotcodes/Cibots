@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3T Laser
   m_EditorClassIdentifier: 
   EnergyCost: 2
-  gunDamage: 25
+  gunDamage: 10
   weaponRange: 50
   hitForce: 1
   laserColor: {r: 1, g: 1, b: 1, a: 1}

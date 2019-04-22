@@ -54,8 +54,6 @@ public class WanderingAgent : Agent, IResettable
 
         if (Mathf.Abs(transform.position.x) > 19 || Mathf.Abs(transform.position.z) > 19) {
             AddReward(-0.05f);
-            Done();
-            Reset();
         }
 
         if (Mathf.Abs(transform.position.x) > 20 || Mathf.Abs(transform.position.z) > 20) {

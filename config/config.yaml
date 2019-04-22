@@ -24,6 +24,7 @@ default:
 Wandering:
     max_steps: 5.0e5
     normalize: false
+    use_curiosity: true
 
 3TLearning:
     max_steps: 5.0e5

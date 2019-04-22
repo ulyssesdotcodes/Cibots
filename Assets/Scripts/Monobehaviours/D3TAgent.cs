@@ -60,10 +60,9 @@ public class D3TAgent : EnemyAgent, IResettable
         AddReward(-0.01f);
         if(Mathf.Clamp(vectorAction[2], -1, 1) > 0.5f) {
             string fireResult = RaycastShooter.Fire();
-            Debug.Log(fireResult);
             switch(fireResult) {
                 case "player":
-                    AddReward(0.2f);
+                    AddReward(0.05f);
                     break;
                 case "enemy":
                     AddReward(-0.001f);
@@ -80,8 +79,6 @@ public class D3TAgent : EnemyAgent, IResettable
 
         if (Mathf.Abs(transform.position.x) > 19 || Mathf.Abs(transform.position.z) > 19) {
             AddReward(-0.05f);
-            Done();
-            Reset();
         }
 
         if (Mathf.Abs(transform.position.x) > 20 || Mathf.Abs(transform.position.z) > 20) {

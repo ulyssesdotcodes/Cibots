@@ -22,5 +22,5 @@ MonoBehaviour:
     - turn
     - shoot
     vectorActionSpaceType: 1
-  model: {fileID: 11400000, guid: 44e43a01f27655443bd9fce0f951be00, type: 3}
+  model: {fileID: 11400000, guid: a4b7f6b19ee327c45ae84f05a1b4d447, type: 3}
   inferenceDevice: 0
