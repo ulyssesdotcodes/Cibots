@@ -15,7 +15,7 @@ public class RaycastShooter : MonoBehaviour {
         energyAgent = GetComponent<EnergyAgent>();
     }
 
-    public string Fire()
+    public GameObject Fire()
     {
         if(!Ability.CanRun(energyAgent.EnergyPool)) {
             return null;
@@ -71,7 +71,7 @@ public class RaycastShooter : MonoBehaviour {
         }
 
         LaserActive = StartCoroutine(FireEnable());
-        return hitSomething ? hit.collider.gameObject.tag : null;
+        return hitSomething ? hit.collider.gameObject : null;
     }
 
     private IEnumerator FireEnable() {

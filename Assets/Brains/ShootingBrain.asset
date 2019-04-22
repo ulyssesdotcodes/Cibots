@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b23992c8eb17439887f5e944bf04a40, type: 3}
-  m_Name: WanderingBrain
+  m_Name: ShootingBrain
   m_EditorClassIdentifier: 
   brainParameters:
     vectorObservationSize: 39
-    numStackedVectorObservations: 4
+    numStackedVectorObservations: 13
     vectorActionSize: 04000000
     cameraResolutions: []
     vectorActionDescriptions:
@@ -23,5 +23,5 @@ MonoBehaviour:
     - shoot
     - heal
     vectorActionSpaceType: 1
-  model: {fileID: 11400000, guid: ef8b9046a10d1b44da110dd38302d8f5, type: 3}
+  model: {fileID: 0}
   inferenceDevice: 0

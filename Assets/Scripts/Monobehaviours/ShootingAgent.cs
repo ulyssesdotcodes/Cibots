@@ -8,7 +8,7 @@ using UnityEngine;
 [RequireComponent(typeof(HealthAgent))]
 [RequireComponent(typeof(RayPerception3D))]
 [RequireComponent(typeof(Rigidbody))]
-public class D3TAgent : EnemyAgent, IResettable
+public class ShootingAgent : Agent, IResettable
 {
     public float InitialHealth;
     public float InitialEnergy;
@@ -16,7 +16,6 @@ public class D3TAgent : EnemyAgent, IResettable
     public float TurnSpeed = 300f;
     Rigidbody agentRb;
     HealthAgent HealthAgent;
-    HealthAgent PlayerHealthAgent;
     EnergyAgent EnergyAgent;
     RaycastShooter RaycastShooter;
     private RayPerception3D rayPer;
@@ -29,8 +28,6 @@ public class D3TAgent : EnemyAgent, IResettable
         HealthAgent = GetComponent<HealthAgent>();
         EnergyAgent = GetComponent<EnergyAgent>();
         RaycastShooter = GetComponent<RaycastShooter>();
-
-        PlayerHealthAgent = Player.GetComponent<HealthAgent>();
 
         FloatVariable health = ScriptableObject.CreateInstance<FloatVariable>();
         health.InitialValue = InitialHealth;
@@ -53,7 +50,6 @@ public class D3TAgent : EnemyAgent, IResettable
         AddVectorObs(localVelocity.z);
         AddVectorObs(HealthAgent.Health.RuntimeValue);
         AddVectorObs(EnergyAgent.EnergyPool.RuntimeValue);
-        AddVectorObs(PlayerHealthAgent.Health.RuntimeValue);
     }
 
     public override void AgentAction(float[] vectorAction, string textAction) {
@@ -62,36 +58,29 @@ public class D3TAgent : EnemyAgent, IResettable
             GameObject fireResult = RaycastShooter.Fire();
             if(fireResult != null) {
                 switch(fireResult.tag) {
-                    case "player":
-                        AddReward(0.2f);
-                        break;
                     case "enemy":
-                        AddReward(-0.001f);
+                        if(fireResult.GetComponent<HealthAgent>().Health.RuntimeValue <= 0) {
+                            AddReward(1f);
+                            Done();
+                            Reset();
+                        } else {
+                            AddReward(0.05f);
+                        }
                         break;
-                    // default:
-                    //     AddReward(-0.0001f);
-                    //     break;
                 }
             }
         }
 
-        // if(!RaycastShooter.Ability.CanRun(EnergyAgent.EnergyPool)) {
-        //     AddReward(-0.001f);
-        // }
-
         if (Mathf.Abs(transform.position.x) > 19 || Mathf.Abs(transform.position.z) > 19) {
             AddReward(-0.05f);
+            Done();
+            Reset();
         }
 
         if (Mathf.Abs(transform.position.x) > 20 || Mathf.Abs(transform.position.z) > 20) {
             AddReward(-1f);
             Done();
             Reset();
-        }
-
-        if (PlayerHealthAgent.Health.RuntimeValue <= 0) {
-            AddReward(1f);
-            Done();
         }
 
         if (HealthAgent.Health.RuntimeValue < 0) {
@@ -101,6 +90,8 @@ public class D3TAgent : EnemyAgent, IResettable
             EnergyAgent.EnergyPool.RuntimeValue = InitialEnergy;
             Reset();
         }
+
+        AddReward(Mathf.Abs(vectorAction[0]) * -0.01f);
 
         Vector3 dirToGo = transform.forward * Mathf.Clamp(vectorAction[0], -0.6f, 1f);
         Vector3 rotateDir = transform.up * Mathf.Clamp(vectorAction[1], -1f, 1f);
