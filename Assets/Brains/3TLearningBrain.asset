@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3TLearningBrain
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 50
+    vectorObservationSize: 52
     numStackedVectorObservations: 12
     vectorActionSize: 03000000
     cameraResolutions: []
@@ -22,5 +22,5 @@ MonoBehaviour:
     - turn
     - shoot
     vectorActionSpaceType: 1
-  model: {fileID: 11400000, guid: a4b7f6b19ee327c45ae84f05a1b4d447, type: 3}
+  model: {fileID: -8229498024175801722, guid: ecc5d12730017ad43b07b497df7a4353, type: 3}
   inferenceDevice: 0

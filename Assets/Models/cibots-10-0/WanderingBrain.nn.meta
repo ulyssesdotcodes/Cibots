@@ -1,9 +1,9 @@
 fileFormatVersion: 2
 guid: 2bd4aed4b2ae1b94ba5c8797a743d57e
 ScriptedImporter:
-  fileIDToRecycleName:
-    11400000: Assets/Models/cibots-10-0/WanderingBrain.nn
+  internalIDToNameTable: []
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 

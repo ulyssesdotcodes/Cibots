@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WanderingBrain
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 39
+    vectorObservationSize: 49
     numStackedVectorObservations: 4
     vectorActionSize: 04000000
     cameraResolutions: []
@@ -23,5 +23,5 @@ MonoBehaviour:
     - shoot
     - heal
     vectorActionSpaceType: 1
-  model: {fileID: 11400000, guid: ef8b9046a10d1b44da110dd38302d8f5, type: 3}
+  model: {fileID: 5425922419002136416, guid: f0e459d07531f7641b32fcc39f76353a, type: 3}
   inferenceDevice: 0

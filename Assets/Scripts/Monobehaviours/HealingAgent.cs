@@ -59,8 +59,8 @@ public class HealingAgent : Agent, IResettable
             AddReward(-0.1f);
         }
 
-        if(Mathf.Clamp(vectorAction[3], -1, 1) > 0.5f && HealAbility.CanRun(EnergyAgent.EnergyPool)) {
-            EnergyAgent.UseAbility(HealAbility);
+        if(Mathf.Clamp(vectorAction[3], -1, 1) > 0.5f && HealAbility.CanRun(1, EnergyAgent.EnergyPool)) {
+            EnergyAgent.UseAbility(1, HealAbility);
             HealthAgent.Health.RuntimeValue += HealAbility.HealAmount * Time.deltaTime;
         }
 

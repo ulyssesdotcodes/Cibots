@@ -15,15 +15,15 @@ public class RaycastShooter : MonoBehaviour {
         energyAgent = GetComponent<EnergyAgent>();
     }
 
-    public GameObject Fire()
+    public GameObject Fire(float mult)
     {
-        if(!Ability.CanRun(energyAgent.EnergyPool)) {
+        if(!Ability.CanRun(mult, energyAgent.EnergyPool)) {
             return null;
         }
 
         bool hitSomething = false;
 
-        energyAgent.UseAbility(Ability);
+        energyAgent.UseAbility(mult, Ability);
         //Create a vector at the center of our camera's near clip plane.
         Vector3 rayOrigin = gameObject.transform.position;
         

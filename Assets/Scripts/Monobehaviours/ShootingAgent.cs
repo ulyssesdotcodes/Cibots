@@ -8,9 +8,8 @@ using UnityEngine;
 [RequireComponent(typeof(HealthAgent))]
 [RequireComponent(typeof(RayPerception3D))]
 [RequireComponent(typeof(Rigidbody))]
-public class ShootingAgent : Agent, IResettable
+public class ShootingAgent : BasePlayerAgent, IResettable
 {
-    public float InitialHealth;
     public float InitialEnergy;
     public float MoveSpeed = 3f;
     public float TurnSpeed = 300f;
@@ -19,6 +18,7 @@ public class ShootingAgent : Agent, IResettable
     EnergyAgent EnergyAgent;
     RaycastShooter RaycastShooter;
     private RayPerception3D rayPer;
+    CibotAcademy Academy;
     // Start is called before the first frame update
     public override void InitializeAgent()
     {
@@ -38,6 +38,9 @@ public class ShootingAgent : Agent, IResettable
         energy.InitialValue = InitialEnergy;
         energy.RuntimeValue = InitialEnergy;
         EnergyAgent.EnergyPool = energy;
+        EnergyAgent.MaxAmount = InitialEnergy;
+
+        Academy = GameObject.FindObjectOfType<CibotAcademy>();
     }
 
     public override void CollectObservations() {
@@ -48,14 +51,19 @@ public class ShootingAgent : Agent, IResettable
         Vector3 localVelocity = transform.InverseTransformDirection(agentRb.velocity);
         AddVectorObs(localVelocity.x);
         AddVectorObs(localVelocity.z);
-        AddVectorObs(HealthAgent.Health.RuntimeValue);
-        AddVectorObs(EnergyAgent.EnergyPool.RuntimeValue);
+        AddVectorObs(HealthAgent.Health.RuntimeValue / InitialHealth);
+        AddVectorObs(EnergyAgent.EnergyPool.RuntimeValue / InitialEnergy);
     }
 
     public override void AgentAction(float[] vectorAction, string textAction) {
-        AddReward(-0.01f);
+        AddReward(-0.002f);
+
+        if(!RaycastShooter.Ability.CanRun(Academy.resetParameters["player_fire_cost"], EnergyAgent.EnergyPool)) {
+            AddReward(-0.0005f);
+        }
+
         if(Mathf.Clamp(vectorAction[2], -1, 1) > 0.5f) {
-            GameObject fireResult = RaycastShooter.Fire();
+            GameObject fireResult = RaycastShooter.Fire(1);
             if(fireResult != null) {
                 switch(fireResult.tag) {
                     case "enemy":
@@ -64,15 +72,15 @@ public class ShootingAgent : Agent, IResettable
                             Done();
                             Reset();
                         } else {
-                            AddReward(0.05f);
+                            AddReward(0.008f);
                         }
                         break;
                 }
             }
         }
 
-        if (Mathf.Abs(transform.position.x) > 19 || Mathf.Abs(transform.position.z) > 19) {
-            AddReward(-0.05f);
+        if (Mathf.Abs(transform.position.x) > 18 || Mathf.Abs(transform.position.z) > 18) {
+            AddReward(-0.004f);
             Done();
             Reset();
         }
@@ -86,12 +94,10 @@ public class ShootingAgent : Agent, IResettable
         if (HealthAgent.Health.RuntimeValue < 0) {
             AddReward(-1f);
             Done();
-            HealthAgent.Health.RuntimeValue = InitialHealth;
-            EnergyAgent.EnergyPool.RuntimeValue = InitialEnergy;
             Reset();
         }
 
-        AddReward(Mathf.Abs(vectorAction[0]) * -0.01f);
+        AddReward(Mathf.Abs(vectorAction[0]) * -0.002f);
 
         Vector3 dirToGo = transform.forward * Mathf.Clamp(vectorAction[0], -0.6f, 1f);
         Vector3 rotateDir = transform.up * Mathf.Clamp(vectorAction[1], -1f, 1f);
@@ -101,21 +107,9 @@ public class ShootingAgent : Agent, IResettable
     }
 
     public void Reset() {
-        int pos = (int) Mathf.Floor(Random.Range(0, 5));
-        switch(pos) {
-            case 0:
-                transform.position = new Vector3(19, transform.position.y, 0);
-                break;
-            case 1:
-                transform.position = new Vector3(-19, transform.position.y, 0);
-                break;
-            case 2:
-                transform.position = new Vector3(0, transform.position.y, 19);
-                break;
-            case 3:
-                transform.position = new Vector3(0, transform.position.y, -19);
-                break;
-        }
+        HealthAgent.Health.RuntimeValue = InitialHealth;
+        EnergyAgent.EnergyPool.RuntimeValue = InitialEnergy;
+        transform.position = new Vector3(0, transform.position.y, 0);
         Done();
     }
 }

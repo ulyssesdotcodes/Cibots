@@ -6,10 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(HealthAgent))]
 [RequireComponent(typeof(RayPerception3D))]
 [RequireComponent(typeof(Rigidbody))]
-public class WanderingAgent : Agent, IResettable
+public class WanderingAgent : BasePlayerAgent, IResettable
 {
     CibotAcademy Academy;
-    public float InitialHealth;
     public float MoveSpeed = 3f;
     public float TurnSpeed = 300f;
     Rigidbody agentRb;
@@ -34,7 +33,7 @@ public class WanderingAgent : Agent, IResettable
     public override void CollectObservations() {
         float rayDistance = 50f;
         float[] rayAngles = { 0f, 20f, 90f, 160f, 45f, 135f, 70f, 110f, 180f };
-        string[] detectableObjects = { "wall", "enemy" };
+        string[] detectableObjects = { "enemy", "wall", "enemy" };
         AddVectorObs(rayPer.Perceive(rayDistance, rayAngles, detectableObjects, 0f, 0f));
         Vector3 localVelocity = transform.InverseTransformDirection(agentRb.velocity);
         AddVectorObs(localVelocity.x);
@@ -43,7 +42,7 @@ public class WanderingAgent : Agent, IResettable
     }
 
     public override void AgentAction(float[] vectorAction, string textAction) {
-        AddReward(0.01f);
+        AddReward(0.002f);
 
         if (HealthAgent.Health.RuntimeValue <= 0) {
             Debug.Log("Dead!");
@@ -52,8 +51,8 @@ public class WanderingAgent : Agent, IResettable
             Reset();
         }
 
-        if (Mathf.Abs(transform.position.x) > 19 || Mathf.Abs(transform.position.z) > 19) {
-            AddReward(-0.05f);
+        if (Mathf.Abs(transform.position.x) > 18 || Mathf.Abs(transform.position.z) > 18) {
+            AddReward(-0.004f);
         }
 
         if (Mathf.Abs(transform.position.x) > 20 || Mathf.Abs(transform.position.z) > 20) {
@@ -70,7 +69,7 @@ public class WanderingAgent : Agent, IResettable
     }
 
     public void TookDamage(float amount) {
-        AddReward(-amount);
+        AddReward(amount * -0.01f);
     }
 
     public void Reset() {

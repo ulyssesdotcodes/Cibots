@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ShootingBrain
   m_EditorClassIdentifier: 
   brainParameters:
-    vectorObservationSize: 39
-    numStackedVectorObservations: 13
+    vectorObservationSize: 49
+    numStackedVectorObservations: 12
     vectorActionSize: 04000000
     cameraResolutions: []
     vectorActionDescriptions:

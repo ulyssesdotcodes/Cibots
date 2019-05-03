@@ -62,11 +62,11 @@ public class PlayerAgent : Agent, IResettable
     public override void AgentAction(float[] vectorAction, string textAction) {
         AddReward(0.02f);
         if(Mathf.Clamp(vectorAction[2], -1, 1) > 0.5f) {
-            GameObject fireResult = RaycastShooter.Fire();
+            GameObject fireResult = RaycastShooter.Fire(1);
         }
 
-        if(Mathf.Clamp(vectorAction[3], -1, 1) > 0.5f && HealAbility.CanRun(EnergyAgent.EnergyPool)) {
-            EnergyAgent.UseAbility(HealAbility);
+        if(Mathf.Clamp(vectorAction[3], -1, 1) > 0.5f && HealAbility.CanRun(1, EnergyAgent.EnergyPool)) {
+            EnergyAgent.UseAbility(1, HealAbility);
             HealthAgent.Health.RuntimeValue += HealAbility.HealAmount * Time.deltaTime;
         }
 

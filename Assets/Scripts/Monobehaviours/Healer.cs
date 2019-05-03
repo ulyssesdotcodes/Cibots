@@ -18,6 +18,6 @@ public class Healer : MonoBehaviour {
     public void Heal()
     {
         HealthAgent.Damage(-HealAbility.HealAmount * Time.deltaTime);
-        EnergyAgent.UseAbility(HealAbility);
+        EnergyAgent.UseAbility(1, HealAbility);
     }
 }

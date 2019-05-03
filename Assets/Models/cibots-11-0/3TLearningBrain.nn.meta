@@ -1,9 +1,9 @@
 fileFormatVersion: 2
 guid: 1234789d32895904aabe195a1a46aab9
 ScriptedImporter:
-  fileIDToRecycleName:
-    11400000: Assets/Models/cibots-11-0/3TLearningBrain.nn
+  internalIDToNameTable: []
   externalObjects: {}
+  serializedVersion: 2
   userData: 
   assetBundleName: 
   assetBundleVariant: 

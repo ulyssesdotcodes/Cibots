@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -521,12 +521,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 956998557}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 956998566}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &257643338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,6 +663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &257643342
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1099,7 +1100,6 @@ GameObject:
   - component: {fileID: 331168949}
   - component: {fileID: 331168947}
   - component: {fileID: 331168946}
-  - component: {fileID: 331168945}
   - component: {fileID: 331168948}
   - component: {fileID: 331168956}
   - component: {fileID: 331168955}
@@ -1112,29 +1112,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &331168945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 331168944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8357aaab21df644381daee9ac75de96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: e7d3617dc840b7746944613d2dd876ee, type: 2}
-  agentParameters:
-    agentCameras: []
-    agentRenderTextures: []
-    maxStep: 500
-    resetOnDone: 1
-    onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  InitialHealth: 10
-  MoveSpeed: 3
-  TurnSpeed: 180
 --- !u!54 &331168946
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1242,7 +1219,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 331168944}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5030229, y: 0.125, z: 17.310333}
+  m_LocalPosition: {x: -0.5030229, y: 0.125, z: -0.17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1709116630}
@@ -1260,18 +1237,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02229fb9745d44e4b85c4471ca08f33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 0}
+  brain: {fileID: 11400000, guid: a98c844c2e140499596d919840abdc0d, type: 2}
   agentParameters:
     agentCameras: []
     agentRenderTextures: []
-    maxStep: 0
+    maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
-  InitialHealth: 0
-  InitialEnergy: 0
+  InitialHealth: 10
+  InitialEnergy: 8
   MoveSpeed: 3
-  TurnSpeed: 300
+  TurnSpeed: 180
 --- !u!114 &331168954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,6 +1372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!1 &341046740
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,12 +1482,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 331168944}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 331168953}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &445141275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1646,6 +1624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &445141279
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1960,12 +1939,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 956998557}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 956998566}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &550017138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2102,6 +2081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &550017142
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2233,12 +2213,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 331168944}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 331168953}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &556105727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2375,6 +2355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &556105731
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2534,12 +2515,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 1355647643}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 1355647652}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &570319116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2676,6 +2657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &570319120
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2821,12 +2803,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 956998557}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 956998566}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &604444928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2963,6 +2945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &604444932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3108,12 +3091,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 1355647643}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 1355647652}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &635382534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3250,6 +3233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &635382538
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3395,12 +3379,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 1355647643}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 1355647652}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &703857917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3537,6 +3521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &703857921
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3914,12 +3899,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 956998557}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 956998566}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &837808474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4056,6 +4041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &837808478
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4187,12 +4173,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 331168944}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 331168953}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &848508379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4329,6 +4315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &848508383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4488,12 +4475,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 1355647643}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 1355647652}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &860039966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4630,6 +4617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &860039970
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5045,7 +5033,6 @@ GameObject:
   - component: {fileID: 956998563}
   - component: {fileID: 956998561}
   - component: {fileID: 956998560}
-  - component: {fileID: 956998559}
   - component: {fileID: 956998562}
   - component: {fileID: 956998569}
   - component: {fileID: 956998568}
@@ -5066,35 +5053,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956998557}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5030229, y: 0.125, z: -20.689667}
+  m_LocalPosition: {x: -0.5030229, y: 0.125, z: -1.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1262270728}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &956998559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956998557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8357aaab21df644381daee9ac75de96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: e7d3617dc840b7746944613d2dd876ee, type: 2}
-  agentParameters:
-    agentCameras: []
-    agentRenderTextures: []
-    maxStep: 500
-    resetOnDone: 1
-    onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  InitialHealth: 10
-  MoveSpeed: 3
-  TurnSpeed: 180
 --- !u!54 &956998560
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5206,18 +5170,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02229fb9745d44e4b85c4471ca08f33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 0}
+  brain: {fileID: 11400000, guid: a98c844c2e140499596d919840abdc0d, type: 2}
   agentParameters:
     agentCameras: []
     agentRenderTextures: []
-    maxStep: 0
+    maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
-  InitialHealth: 0
-  InitialEnergy: 0
+  InitialHealth: 10
+  InitialEnergy: 8
   MoveSpeed: 3
-  TurnSpeed: 300
+  TurnSpeed: 180
 --- !u!114 &956998567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5341,6 +5305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!1 &984555241
 GameObject:
   m_ObjectHideFlags: 0
@@ -5428,12 +5393,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 1355647643}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 1355647652}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &984555246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5570,6 +5535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &984555250
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5701,12 +5667,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 331168944}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 331168953}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1038621576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5843,6 +5809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1038621580
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6002,12 +5969,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 956998557}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 956998566}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1042024120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6144,6 +6111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1042024124
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6289,12 +6257,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 956998557}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 956998566}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1057773764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6431,6 +6399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1057773768
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6562,12 +6531,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 331168944}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 331168953}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1146979293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6704,6 +6673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1146979297
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6863,12 +6833,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 956998557}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 956998566}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1193600551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7005,6 +6975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1193600555
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7136,12 +7107,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 331168944}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 331168953}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1212909545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7278,6 +7249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1212909549
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7437,12 +7409,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 956998557}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 956998566}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1232444848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7579,6 +7551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1232444852
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7906,12 +7879,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 1355647643}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 1355647652}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1246604444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8048,6 +8021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1246604448
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8312,12 +8286,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 331168944}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 331168953}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1286257660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8454,6 +8428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1286257664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8599,12 +8574,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 331168944}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 331168953}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1295425278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8741,6 +8716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1295425282
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8991,12 +8967,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 956998557}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 956998566}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1352072381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9133,6 +9109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1352072385
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9205,7 +9182,6 @@ GameObject:
   - component: {fileID: 1355647649}
   - component: {fileID: 1355647647}
   - component: {fileID: 1355647646}
-  - component: {fileID: 1355647645}
   - component: {fileID: 1355647648}
   - component: {fileID: 1355647655}
   - component: {fileID: 1355647654}
@@ -9226,35 +9202,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355647643}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5030229, y: 0.125, z: 17.310333}
+  m_LocalPosition: {x: -0.5030229, y: 0.125, z: 1.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2053474372}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1355647645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355647643}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8357aaab21df644381daee9ac75de96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  brain: {fileID: 11400000, guid: e7d3617dc840b7746944613d2dd876ee, type: 2}
-  agentParameters:
-    agentCameras: []
-    agentRenderTextures: []
-    maxStep: 500
-    resetOnDone: 1
-    onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  InitialHealth: 10
-  MoveSpeed: 3
-  TurnSpeed: 180
 --- !u!54 &1355647646
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9366,18 +9319,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02229fb9745d44e4b85c4471ca08f33f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brain: {fileID: 0}
+  brain: {fileID: 11400000, guid: a98c844c2e140499596d919840abdc0d, type: 2}
   agentParameters:
     agentCameras: []
     agentRenderTextures: []
-    maxStep: 0
+    maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
     numberOfActionsBetweenDecisions: 1
-  InitialHealth: 0
-  InitialEnergy: 0
+  InitialHealth: 10
+  InitialEnergy: 8
   MoveSpeed: 3
-  TurnSpeed: 300
+  TurnSpeed: 180
 --- !u!114 &1355647653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9501,6 +9454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!1 &1386899119
 GameObject:
   m_ObjectHideFlags: 0
@@ -9574,12 +9528,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 331168944}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 331168953}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1386899123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9716,6 +9670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1386899127
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9875,12 +9830,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 1355647643}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 1355647652}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1389588181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10017,6 +9972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1389588185
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10421,12 +10377,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 1355647643}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 1355647652}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1758163918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10563,6 +10519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1758163922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10856,12 +10813,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 956998557}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 956998566}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1916215514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10998,6 +10955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1916215518
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11221,12 +11179,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 331168944}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 331168953}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &1979181494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11363,6 +11321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &1979181498
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11594,12 +11553,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 1355647643}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 1355647652}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &2010974822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11736,6 +11695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &2010974826
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11881,12 +11841,12 @@ MonoBehaviour:
     maxStep: 500
     resetOnDone: 1
     onDemandDecision: 0
-    numberOfActionsBetweenDecisions: 2
-  Player: {fileID: 1355647643}
+    numberOfActionsBetweenDecisions: 1
+  Player: {fileID: 1355647652}
   InitialHealth: 10
   InitialEnergy: 4
-  MoveSpeed: 3
-  TurnSpeed: 180
+  MoveSpeed: 2
+  TurnSpeed: 120
 --- !u!114 &2011068261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12023,6 +11983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnergyPool: {fileID: 0}
   RegenAmount: 1
+  MaxAmount: 4
 --- !u!65 &2011068265
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12114,9 +12075,9 @@ MonoBehaviour:
     broadcastingBrains:
     - {fileID: 11400000, guid: 38e1ad318f4df204b9b85d77ca13fc37, type: 2}
     - {fileID: 11400000, guid: e7d3617dc840b7746944613d2dd876ee, type: 2}
+    - {fileID: 11400000, guid: a98c844c2e140499596d919840abdc0d, type: 2}
     _brainsToControl:
-    - {fileID: 11400000, guid: 38e1ad318f4df204b9b85d77ca13fc37, type: 2}
-    - {fileID: 11400000, guid: e7d3617dc840b7746944613d2dd876ee, type: 2}
+    - {fileID: 11400000, guid: a98c844c2e140499596d919840abdc0d, type: 2}
   maxSteps: 2000
   trainingConfiguration:
     width: 80
@@ -12134,8 +12095,12 @@ MonoBehaviour:
     resetParameters:
     - key: player_speed
       value: 3
-    - key: fire_rate
-      value: 0
+    - key: fire_cost
+      value: 1
+    - key: player_fire_cost
+      value: 1
+    - key: enemy_speed
+      value: 3
 --- !u!4 &2021245193
 Transform:
   m_ObjectHideFlags: 0
