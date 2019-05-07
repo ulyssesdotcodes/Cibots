@@ -110,6 +110,7 @@ public class ShootingAgent : BasePlayerAgent, IResettable
         HealthAgent.Health.RuntimeValue = InitialHealth;
         EnergyAgent.EnergyPool.RuntimeValue = InitialEnergy;
         transform.position = new Vector3(0, transform.position.y, 0);
+        agentRb.velocity = Vector3.zero;
         Done();
     }
 }

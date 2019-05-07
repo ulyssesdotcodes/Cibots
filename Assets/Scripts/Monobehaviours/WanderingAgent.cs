@@ -4,6 +4,7 @@ using MLAgents;
 using UnityEngine;
 
 [RequireComponent(typeof(HealthAgent))]
+[RequireComponent(typeof(EnergyAgent))]
 [RequireComponent(typeof(RayPerception3D))]
 [RequireComponent(typeof(Rigidbody))]
 public class WanderingAgent : BasePlayerAgent, IResettable
@@ -13,6 +14,8 @@ public class WanderingAgent : BasePlayerAgent, IResettable
     public float TurnSpeed = 300f;
     Rigidbody agentRb;
     HealthAgent HealthAgent;
+    EnergyAgent EnergyAgent;
+    public float InitialEnergy = 4f;
     private RayPerception3D rayPer;
     // Start is called before the first frame update
     public override void InitializeAgent()
@@ -21,11 +24,18 @@ public class WanderingAgent : BasePlayerAgent, IResettable
         agentRb = GetComponent<Rigidbody>();
         rayPer = GetComponent<RayPerception3D>();
         HealthAgent = GetComponent<HealthAgent>();
+        EnergyAgent = GetComponent<EnergyAgent>();
 
         FloatVariable health = ScriptableObject.CreateInstance<FloatVariable>();
         health.InitialValue = InitialHealth;
         health.RuntimeValue = InitialHealth;
         HealthAgent.Health = health;
+
+        FloatVariable energy = ScriptableObject.CreateInstance<FloatVariable>();
+        energy.InitialValue = InitialEnergy;
+        energy.RuntimeValue = InitialEnergy;
+        EnergyAgent.EnergyPool = energy;
+        EnergyAgent.MaxAmount = InitialEnergy;
 
         Academy = GameObject.FindObjectOfType<CibotAcademy>();
     }
@@ -38,7 +48,8 @@ public class WanderingAgent : BasePlayerAgent, IResettable
         Vector3 localVelocity = transform.InverseTransformDirection(agentRb.velocity);
         AddVectorObs(localVelocity.x);
         AddVectorObs(localVelocity.z);
-        AddVectorObs(HealthAgent.Health.RuntimeValue);
+        AddVectorObs(HealthAgent.Health.RuntimeValue / InitialHealth);
+        AddVectorObs(EnergyAgent.EnergyPool.RuntimeValue / InitialEnergy);
     }
 
     public override void AgentAction(float[] vectorAction, string textAction) {
@@ -75,6 +86,7 @@ public class WanderingAgent : BasePlayerAgent, IResettable
     public void Reset() {
         HealthAgent.Health.RuntimeValue = InitialHealth;
         transform.position = new Vector3(0, transform.position.y, 0);
+        agentRb.velocity = Vector3.zero;
         Done();
     }
 }

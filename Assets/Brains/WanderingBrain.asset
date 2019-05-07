@@ -23,5 +23,5 @@ MonoBehaviour:
     - shoot
     - heal
     vectorActionSpaceType: 1
-  model: {fileID: 5425922419002136416, guid: f0e459d07531f7641b32fcc39f76353a, type: 3}
+  model: {fileID: 5540340457386532888, guid: d1ada05d13510a344b052c855c926467, type: 3}
   inferenceDevice: 0

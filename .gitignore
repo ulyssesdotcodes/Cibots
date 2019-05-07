@@ -1,5 +1,7 @@
 UnitySDK.log
 
+Assets/gitignored/
+
 # Arcadia
 /Arcadia/
 *.mdb*
